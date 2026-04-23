@@ -28,3 +28,5 @@ To wrap up the project, I configured the Power BI data connector to target the A
 - Identity & Access Management (IAM): Using SAS tokens over account keys for better security.
 
 - Data Integration: Connecting Power BI to cloud-hosted datasets via secure URIs.
+
+  <img src="architecture/City_Data_Dashboard_Achitecture_Diagram.drawio.png" atl="architecture diagram">
