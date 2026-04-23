@@ -1,44 +1,30 @@
-# 🌆 Azure Cloud Based Dashboard
-This project demonstrates how to build a secure, cloud-based data solution using Microsoft Azure and Power BI.
+# Azure Cloud Integration: Secure Data Flow to Power BI
+This project focuses on the practical side of cloud infrastructure: getting data into the cloud and ensuring it stays secure while in transit. I built this to demonstrate a clean workflow between Azure Blob Storage and Power BI, specifically focusing on how to manage access without compromising security.
 
-## 🎯 Project Overview
+### The Objective
+The goal was to move beyond local file management and implement a cloud-native data source. The project highlights the end-to-end process of provisioning storage, configuring identity and access, and establishing a secure connection to a visualization tool.
 
-The goal of this project was to simulate how a city government might track and analyze public data (e.g., park usage) using cloud services.
+### Cloud Architecture & Implementation
+Azure Blob Storage Configuration
+I used the Azure Portal to provision a storage account and set up a blob container to host the city dataset. This part of the project involved:
 
-Instead of relying on local files, this solution stores data in the cloud and securely connects it to a reporting tool.
+- Organizing the container hierarchy for easy data retrieval.
 
-## 🏗️ Architecture
-Data stored in Azure Blob Storage
-Secure access via Shared Access Signature (SAS)
-Data visualization in Power BI
+- Understanding the difference between public and private access levels at the container level.
 
-## 🔐 Security
-Access to the data was controlled using a SAS token with:
-- Read permissions
-- Time-bound access
-- Scoped to container and object levels
+### Securing the Pipeline with SAS
+The "star" of this implementation is the security layer. Rather than using the primary Account Key (which provides full control), I implemented Shared Access Signatures (SAS).
 
-## 🛠️ Tools & Technologies
-- Microsoft Azure (Storage Account / Blob Storage)
-- Power BI
-- Command Line (data preparation)
+- The Logic: I generated a SAS URI to provide Power BI with "Read-Only" access.
 
-## 📊 Features
-- Cloud-hosted dataset
-- Secure external access
-- Interactive dashboard showing:
-- Visitors by park
-- Trends over time
+- The Benefit: This follows the principle of least privilege. It creates a secure, time-bound bridge that allows the dashboard to refresh without exposing the entire storage account backend.
 
-## 💡 Key Learnings
-- How to store and manage data in Azure Blob Storage
-- Differences between RBAC and SAS-based access
-- Connecting cloud data sources to Power BI
-- Building a simple data pipeline for reporting
+### Power BI Connectivity
+To wrap up the project, I configured the Power BI data connector to target the Azure Blob service. By using the SAS token as the authentication method, I successfully pulled the cloud data into the report layer. This proves that the data can be managed centrally in the cloud while being accessed securely by external tools.
 
-## 🚀 Future Improvements
-- Automate deployment using Terraform
-- Add real-time data ingestion
-- Implement private endpoints for enhanced security
+### Key Technical Skills Demonstrated
+- Azure Portal Navigation: Creating and configuring storage resources.
 
-![Architecture Diagram](azure-city-data-dashboard/architecture/City_Data_Dashboard_Achitecture_Diagram.drawio.png)
+- Identity & Access Management (IAM): Using SAS tokens over account keys for better security.
+
+- Data Integration: Connecting Power BI to cloud-hosted datasets via secure URIs.
