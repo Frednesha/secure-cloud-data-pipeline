@@ -29,4 +29,8 @@ To wrap up the project, I configured the Power BI data connector to target the A
 
 - Data Integration: Connecting Power BI to cloud-hosted datasets via secure URIs.
 
-  <img src="architecture/City_Data_Dashboard_Achitecture_Diagram.drawio.png" atl="architecture diagram">
+### Architecture Diagram
+<img src="architecture/City_Data_Dashboard_Achitecture_Diagram.drawio.png" atl="architecture diagram">
+
+### City Data Power Bi Dashboard
+<img src="screenshots/power_bi_dashboard.png" atl="architecture diagram">
